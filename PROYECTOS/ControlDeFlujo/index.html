@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Resumen | Flujo de caja</title>
+    <link rel="stylesheet" href="estilos.css">
+    <script type="module" src="js/resumen.js"></script>
+</head>
+<body>
+    <menu-principal pagina="Resumen"></menu-principal>
+    <main hidden>
+        <header class="cabecera">
+            <h1>Resumen</h1>
+        </header>
+        <div class="resumen-saldos">
+            <section><h2>Saldo actual total</h2><p id="saldo-actual" class="importe">—</p></section>
+            <section><h2>Cobros pendientes</h2><p id="cobros-pendientes" class="importe">—</p></section>
+            <section><h2>Pagos pendientes</h2><p id="pagos-pendientes" class="importe">—</p></section>
+        </div>
+        <section>
+            <div class="cabecera-tabla">
+                <h2>Próximos vencimientos</h2>
+                <p id="reloj" class="ayuda"></p>
+            </div>
+            <div class="tabla-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Fecha prevista</th><th scope="col">Concepto</th><th scope="col">Cuenta</th>
+                            <th scope="col">Importe</th><th scope="col">Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody id="vencimientos"></tbody>
+                </table>
+            </div>
+            <p><a href="prevision.html">Consultar la previsión por cuenta</a></p>
+        </section>
+    </main>
+</body>
+</html>

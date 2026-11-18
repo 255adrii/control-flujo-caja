@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Previsión | Flujo de caja</title>
+    <link rel="stylesheet" href="estilos.css">
+    <script type="module" src="js/pantalla-prevision.js"></script>
+</head>
+<body>
+    <menu-principal pagina="Previsión"></menu-principal>
+    <main hidden>
+        <header class="cabecera">
+            <h1>Previsión</h1>
+        </header>
+        <section>
+            <div class="campos">
+                <label>Cuenta <select id="cuenta"></select></label>
+                <label>Horizonte
+                    <select id="horizonte">
+                        <option value="7">7 días</option><option value="15">15 días</option><option value="30">30 días</option>
+                    </select>
+                </label>
+            </div>
+            <h2>Saldo actual</h2>
+            <p id="saldo-actual" class="importe">—</p>
+            <p id="aviso" role="status"></p>
+            <p class="ayuda">La tabla muestra el saldo al cierre de cada fecha con movimientos pendientes. Los vencidos se incluyen hoy.</p>
+            <div class="tabla-scroll">
+                <table>
+                    <thead><tr><th scope="col">Fecha</th><th scope="col">Saldo previsto al cierre</th></tr></thead>
+                    <tbody id="filas-prevision"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
