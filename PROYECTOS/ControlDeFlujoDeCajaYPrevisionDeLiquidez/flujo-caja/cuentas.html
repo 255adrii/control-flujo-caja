@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cuentas | Flujo de caja</title>
+    <link rel="stylesheet" href="estilos.css">
+    <script type="module" src="js/cuentas.js"></script>
+</head>
+<body>
+    <menu-principal pagina="Cuentas"></menu-principal>
+    <main hidden>
+        <header class="cabecera">
+            <h1>Cuentas</h1>
+        </header>
+        <section>
+            <h2 id="titulo-formulario">Nueva cuenta</h2>
+            <form id="formulario-cuenta">
+                <div class="campos">
+                    <label>Nombre <input name="nombre" maxlength="60" required></label>
+                    <label>Tipo
+                        <select name="tipo" required>
+                            <option value="">Selecciona un tipo</option><option>Banco</option><option>Efectivo</option>
+                        </select>
+                    </label>
+                    <label>Saldo inicial (€)
+                        <input type="number" name="saldoInicial" step="0.01" value="0" required>
+                    </label>
+                </div>
+                <label>Descripción <textarea name="descripcion" rows="2" maxlength="150"></textarea></label>
+                <div class="acciones">
+                    <button type="submit" class="principal">Guardar cuenta</button>
+                    <button type="button" id="cancelar" hidden>Cancelar edición</button>
+                </div>
+            </form>
+            <p id="mensaje" role="status"></p>
+        </section>
+        <section>
+            <h2>Listado de cuentas</h2>
+            <form class="campos" id="filtros">
+                <label>Buscar por nombre <input type="search" name="buscar"></label>
+                <label>Filtrar por tipo
+                    <select name="tipo"><option value="">Todos</option><option>Banco</option><option>Efectivo</option></select>
+                </label>
+                <label>Ordenar por
+                    <select name="orden">
+                        <option value="nombre">Nombre (A–Z)</option>
+                        <option value="saldo">Saldo actual (mayor primero)</option>
+                        <option value="fecha">Alta (reciente primero)</option>
+                    </select>
+                </label>
+            </form>
+            <div class="tabla-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Nombre</th><th scope="col">Tipo</th><th scope="col">Fecha de alta</th>
+                            <th scope="col">Saldo actual</th><th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="filas-cuentas"></tbody>
+                </table>
+            </div>
+        </section>
+        
+        <dialog id="detalle" aria-labelledby="titulo-detalle">
+            <h2 id="titulo-detalle">Detalles</h2>
+            <dl></dl>
+            <form method="dialog"><button type="submit">Cerrar</button></form>
+        </dialog>
+    </main>
+</body>
+</html>
